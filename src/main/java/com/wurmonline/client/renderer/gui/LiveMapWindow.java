@@ -165,5 +165,8 @@ public class LiveMapWindow extends WWindow {
 			this.liveMap.pick(pickData, 1.0f * (xMouse - this.liveMapView.x) / this.liveMapView.width, 1.0f * (yMouse - this.liveMapView.y) / this.liveMapView.width);
 		}
 	}
-	
+
+	public HeadsUpDisplay getHud() {
+		return hud;
+	}
 }
