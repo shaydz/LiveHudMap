@@ -4,7 +4,7 @@
 
 	<groupId>org.gotti.wurmunlimited</groupId>
 	<artifactId>livemap</artifactId>
-	<version>1.6</version>
+	<version>1.6-wu1611-hax</version>
 	<packaging>jar</packaging>
 
 	<name>livemap</name>
@@ -13,7 +13,17 @@
 		<dependency>
 			<groupId>org.gotti.wurmunlimited</groupId>
 			<artifactId>client-modlauncher</artifactId>
-			<version>0.5-beta1</version>
+			<version>0.7-beta1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.gotti.wurmunlimited</groupId>
+			<artifactId>client</artifactId>
+			<version>2726176</version>
+		</dependency>
+		<dependency>
+			<groupId>org.gotti.wurmunlimited</groupId>
+			<artifactId>common-client</artifactId>
+			<version>2726176</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl.lwjgl</groupId>

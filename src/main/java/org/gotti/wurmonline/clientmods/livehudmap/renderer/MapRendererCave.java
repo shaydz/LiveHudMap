@@ -2,10 +2,13 @@ package org.gotti.wurmonline.clientmods.livehudmap.renderer;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import com.wurmonline.client.game.CaveDataBuffer;
 import com.wurmonline.client.renderer.PickData;
+import com.wurmonline.client.renderer.gui.LiveMapWindow;
 import com.wurmonline.mesh.Tiles.Tile;
+import org.gotti.wurmonline.clientmods.livehudmap.LiveHudMapMod;
 
 public class MapRendererCave extends AbstractCaveRenderer {
 
@@ -89,13 +92,20 @@ public class MapRendererCave extends AbstractCaveRenderer {
 		return !isTunnel(x + 1, y) && !isTunnel(x - 1, y) && !isTunnel(x, y + 1) && !isTunnel(x, y - 1);
 	}
 
+	private int getQl(int x ,int y ,int sz){
+		Random r = new Random();
+		r.setSeed((x + y * sz) * 789221L);
+		return 20 + r.nextInt(80);
+	}
+
 	@Override
 	public void pick(PickData pickData, float xMouse, float yMouse, int width, int height, int px, int py) {
 		final int ox = px + (int)(xMouse * width) - width / 2;
 		final int oy = py + (int)(yMouse * height) - height / 2;
 		final Tile tile = getEffectiveTileType(ox, oy);
-		if (tile != Tile.TILE_CAVE_WALL && !isTunnel(tile)) {
-			pickData.addText(tile.getName().replace(" wall", "").replace(" vein", ""));
+		if (!isTunnel(tile)) {
+			pickData.addText(tile.getName().replace(" wall", "").replace(" vein", "") +
+					(LiveHudMapMod.serverSize>0?(String.format(" (%d QL)", getQl(ox,oy,LiveHudMapMod.serverSize))):""));
 		}
 	}
 }

@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Properties;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,7 +35,9 @@ public class LiveHudMapMod implements WurmClientMod, Initable, PreInitable, Conf
 	private boolean showHiddenOre = false;
 	
 	private Object liveMap;
-	
+
+	public static int serverSize = 0;
+
 	@Override
 	public void configure(Properties properties) {
 		hiResMap = Boolean.valueOf(properties.getProperty("hiResMap", String.valueOf(hiResMap)));
@@ -109,6 +112,16 @@ public class LiveHudMapMod implements WurmClientMod, Initable, PreInitable, Conf
 	public boolean handleInput(String string, Boolean silent) {
 		if (string != null && string.startsWith("toggle livemap") && liveMap instanceof LiveMapWindow) {
 			((LiveMapWindow)liveMap).toggle();
+			return true;
+		} else if (string != null && string.startsWith("serversize")) {
+			final StringTokenizer tokens = new StringTokenizer(string);
+			tokens.nextToken();
+			if (tokens.hasMoreTokens()) {
+				serverSize = Integer.parseInt(tokens.nextToken(), 10);
+				((LiveMapWindow)liveMap).getHud().consoleOutput("Server size set to " + serverSize);
+			} else {
+				((LiveMapWindow)liveMap).getHud().consoleOutput("Server size required");
+			}
 			return true;
 		}
 		return false;
