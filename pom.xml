@@ -18,12 +18,12 @@
 		<dependency>
 			<groupId>org.gotti.wurmunlimited</groupId>
 			<artifactId>client</artifactId>
-			<version>2726176</version>
+			<version>3127451</version>
 		</dependency>
 		<dependency>
 			<groupId>org.gotti.wurmunlimited</groupId>
 			<artifactId>common-client</artifactId>
-			<version>2726176</version>
+			<version>3127451</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl.lwjgl</groupId>
@@ -46,8 +46,8 @@
 
 	<repositories>
 		<repository>
-			<id>gotti-no-ip-org-ssh-repository</id>
-			<url>http://gotti.no-ip.org/maven/repository</url>
+			<id>rip-gotti-no-ip-org-ssh-repository</id>
+			<url>https://dl.bdew.net/agorepo/</url>
 		</repository>
 	</repositories>
 
