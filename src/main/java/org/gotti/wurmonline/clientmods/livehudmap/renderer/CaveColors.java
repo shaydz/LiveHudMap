@@ -49,7 +49,7 @@ public class CaveColors {
         addMapping(Tile.TILE_CAVE_WALL_SLATE, Color.BLACK);
         addMapping(Tile.TILE_CAVE_WALL_MARBLE, Color.WHITE);
         addMapping(Tile.TILE_CAVE_WALL_SANDSTONE, Color.YELLOW.darker().darker());
-        addMapping(Tile.TILE_CAVE_WALL_ROCKSALT, Color.WHITE.darker());
+        addMapping(Tile.TILE_CAVE_WALL_ROCKSALT, Color.DARK_GRAY.darker());
     }
     
     private static void addMapping(Tile tile, Color color) {
